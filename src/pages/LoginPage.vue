@@ -2,7 +2,10 @@
   <div id="loginPage">
     <main>
       <header>
-        Right side
+        <div>Logo</div>
+        <h1>Hapenning now</h1>
+        <h2>Join Twitter today.</h2>
+        <div>Form</div>
       </header>
 
       <div id="logoContainer">
@@ -12,22 +15,14 @@
 
     <footer>
       <nav>
-        <a href="#">About</a>
-        <a href="#">Help Center</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cookie Policy</a>
-        <a href="#">Ads info</a>
-        <a href="#">Blog</a>
-        <a href="#">Status</a>
-        <a href="#">Careers</a>
-        <a href="#">Brand Resources</a>
-        <a href="#">Advertising</a>
-        <a href="#">Marketing</a>
-        <a href="#">Twitter for Business</a>
-        <a href="#">Developers</a>
-        <a href="#">Directory</a>
-        <a href="#">Settings</a>
+        <a
+          v-for="link in links"
+          :key="link.label"
+          :href="link.url"
+        >
+          {{ link.label }}
+        </a>
+
         <span>&copy; 2021 Twitter, Inc.</span>
       </nav>
     </footer>
@@ -37,9 +32,29 @@
 <script>
 import BirdLogo from '../components/BirdLogo';
 
+const links = [
+  { url: '#', label: 'About' },
+  { url: '#', label: 'Help Center' },
+  { url: '#', label: 'Terms of Service' },
+  { url: '#', label: 'Privacy Policy' },
+  { url: '#', label: 'Cookie Policy' },
+  { url: '#', label: 'Ads info' },
+  { url: '#', label: 'Blog' },
+  { url: '#', label: 'Status' },
+  { url: '#', label: 'Careers' },
+  { url: '#', label: 'Brand Resources' },
+  { url: '#', label: 'Advertising' },
+  { url: '#', label: 'Marketing' },
+  { url: '#', label: 'Twitter for Business' },
+  { url: '#', label: 'Developers' },
+  { url: '#', label: 'Directory' },
+  { url: '#', label: 'Settings' }
+];
+
 export default {
   name: 'LoginPage',
-  components: { BirdLogo }
+  components: { BirdLogo },
+  data: () => ({ links })
 }
 </script>
 
@@ -62,14 +77,24 @@ export default {
   }
 
   header {
-    flex-grow: 1
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 36px;
   }
 
   #logoContainer {
-    flex-grow: 1.2;
+    flex-grow: 1.3;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  header h1 {
+    font-size: 64px;
+    font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: rgba(217, 217 ,217 ,1.00);
   }
 
   #logoContainer {
