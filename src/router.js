@@ -6,7 +6,7 @@ export default createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/login',
+      path: '/',
       component: LoginPage
     }
   ]
