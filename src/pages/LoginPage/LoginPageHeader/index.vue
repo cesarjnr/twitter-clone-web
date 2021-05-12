@@ -11,16 +11,12 @@
     <div id="buttonsContainer">
       <rounded-button
         text="Sign up"
-        :customStyle="{ margin: '0 0 20px 0' }"
+        margin="0 0 20px 0"
       />
       <rounded-button
         text="Log in"
-        :customStyle="{
-          color: 'rgb(29, 161, 242)',
-          backgroundColor: 'rgba(0, 0, 0, 0)',
-          margin: '0 0 20px 0',
-          border: '1px solid rgb(29, 161, 242)'
-        }"
+        margin="0 0 20px 0"
+        className="blackButton"
       />
     </div>
   </header>
