@@ -8,6 +8,10 @@ export default createRouter({
     {
       path: '/',
       component: LoginPage
+    },
+    {
+      path: '/i/flow/signup',
+      component: LoginPage
     }
   ]
 })

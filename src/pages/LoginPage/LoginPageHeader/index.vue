@@ -9,10 +9,10 @@
     <h2>Join Twitter today.</h2>
 
     <div id="buttonsContainer">
-      <rounded-button
-        text="Sign up"
-        margin="0 0 20px 0"
-      />
+      <router-link to="/i/flow/signup" id="signUpLink">
+        <rounded-button text="Sign up" margin="0 0 20px 0" />
+      </router-link>
+
       <rounded-button
         text="Log in"
         margin="0 0 20px 0"
@@ -59,5 +59,9 @@ export default {
   #buttonsContainer {
     display: flex;
     flex-direction: column;
+  }
+
+  #signUpLink {
+    text-decoration: none;
   }
 </style>

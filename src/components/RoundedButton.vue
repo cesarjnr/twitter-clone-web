@@ -1,13 +1,13 @@
 <template>
-  <a
-    href="#"
+  <div
+    id="roundedButtonComponent"
     :style="{ margin }"
     :class="getClass"
   >
     <span>
       {{ text }}
     </span>
-  </a>
+  </div>
 </template>
 
 <script>
@@ -37,8 +37,7 @@ export default {
 </script>
 
 <style scoped>
-  a {
-    text-decoration: none;
+  #roundedButtonComponent {
     max-width: 380px;
     display: flex;
     justify-content: center;
