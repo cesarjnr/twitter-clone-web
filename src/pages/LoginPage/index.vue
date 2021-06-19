@@ -7,7 +7,7 @@
     <login-page-footer />
 
     <template v-if="isSignUpRoute">
-      <login-page-sign-up />
+      <sign-up-modal />
     </template>
   </div>
 </template>
@@ -18,7 +18,7 @@ import { useRoute } from 'vue-router';
 import LoginPageHeader from './LoginPageHeader';
 import LoginPageMain from './LoginPageMain';
 import LoginPageFooter from './LoginPageFooter';
-import LoginPageSignUp from './LoginPageSignUp';
+import SignUpModal from './SignUpModal';
 
 export default {
   name: 'LoginPage',
@@ -26,7 +26,7 @@ export default {
     LoginPageHeader,
     LoginPageMain,
     LoginPageFooter,
-    LoginPageSignUp
+    SignUpModal
   },
   computed: {
     isSignUpRoute: () => {

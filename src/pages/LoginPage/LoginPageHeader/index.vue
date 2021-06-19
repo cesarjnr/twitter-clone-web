@@ -10,13 +10,18 @@
 
     <div id="buttonsContainer">
       <router-link to="/i/flow/signup" id="signUpLink">
-        <rounded-button text="Sign up" margin="0 0 20px 0" />
+        <rounded-button
+          text="Sign up"
+          margin="0 0 20px 0"
+          padding="15px 0"
+        />
       </router-link>
 
       <rounded-button
         text="Log in"
+        buttonStyle="blackButton"
         margin="0 0 20px 0"
-        className="blackButton"
+        padding="15px 0"
       />
     </div>
   </header>
