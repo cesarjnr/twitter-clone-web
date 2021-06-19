@@ -1,7 +1,7 @@
 <template>
   <div
-    id="roundedButtonComponent"
-    :style="{ margin }"
+    class="roundedButtonComponent"
+    :style="{ margin, padding }"
     :class="getClass"
   >
     <span>
@@ -18,34 +18,48 @@ export default {
       type: String,
       required: true
     },
-    className: {
+    buttonStyle: {
       type: String,
       default: 'blueButton'
     },
-    margin: String
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    margin: String,
+    padding: String,
   },
   computed: {
     getClass() {
-      if (this.className === 'blackButton') {
-        return { blackButton: true, blackButtonHover: true };
-      } else {
-        return { blueButton: true, blueButtonHover: true };
+      const classesMap = new Map([
+        ['blueButton', { blueButton: true }],
+        ['blackButton', { blackButton: true }]
+      ]);
+      const selectedClass = classesMap.get(this.buttonStyle);
+
+      if (this.disabled) {
+        selectedClass.disabledStyle = true;
       }
+
+      console.log(selectedClass);
+
+      return selectedClass;
     }
   }
 }
 </script>
 
 <style scoped>
-  #roundedButtonComponent {
+  .roundedButtonComponent {
     max-width: 380px;
     display: flex;
     justify-content: center;
-    padding: 15px 0;
+    align-items: center;
     border-radius: 9999px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: 700;
+    cursor: pointer;
   }
 
   .blueButton {
@@ -69,5 +83,10 @@ export default {
 
   .blueButton, .blackButton {
     transition-duration: 0.2s;
+  }
+
+  .disabledStyle {
+    opacity: 0.5;
+    pointer-events: none;
   }
 </style>
