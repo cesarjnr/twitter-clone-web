@@ -41,8 +41,6 @@ export default {
         selectedClass.disabledStyle = true;
       }
 
-      console.log(selectedClass);
-
       return selectedClass;
     }
   }

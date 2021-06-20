@@ -14,6 +14,14 @@
           />
         </div>
       </div>
+
+      <div id="modalBody">
+        <h2>Create your account</h2>
+
+        <form>
+          <animated-input />
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -21,10 +29,11 @@
 <script>
 import BirdLogo from '../../../components/BirdLogo.vue';
 import RoundedButton from '../../../components/RoundedButton';
+import AnimatedInput from '../../../components/AnimatedInput.vue';
 
 export default {
   name: 'SignUpModal',
-  components: { BirdLogo, RoundedButton }
+  components: { BirdLogo, RoundedButton, AnimatedInput }
 }
 </script>
 
@@ -58,5 +67,14 @@ export default {
     flex-grow: 1;
     display: flex;
     justify-content: flex-end;
+  }
+
+  #modalBody {
+    padding: 0 32px;
+  }
+
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 16px 0;
   }
 </style>
