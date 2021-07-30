@@ -1,6 +1,6 @@
 <template>
-  <div id="loginPage">
-    <div id="headerMainContainer">
+  <div class="login-page">
+    <div class="header-main-container">
       <login-page-header />
       <login-page-main />
     </div>
@@ -39,14 +39,14 @@ export default {
 </script>
 
 <style scoped>
-  #loginPage {
+  .login-page {
     background-color: rgb(0, 0, 0);
     height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
-  #headerMainContainer {
+  .header-main-container {
     display: flex;
     flex-direction: row-reverse;
     height: 100%;

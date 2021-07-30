@@ -1,5 +1,5 @@
 <template>
-  <main id="loginPageMain">
+  <main class="login-page-main">
     <bird-logo />
   </main>
 </template>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style scoped>
-  #loginPageMain {
+  .login-page-main {
     flex-basis: 0;
     flex-grow: 1.3;
     display: flex;

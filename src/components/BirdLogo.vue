@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="birdLogo"
+    class="bird-logo"
     viewBox="0 0 24 24"
     :style="{ height }"
   >

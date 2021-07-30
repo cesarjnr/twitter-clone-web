@@ -1,6 +1,6 @@
 <template>
   <div
-    class="roundedButtonComponent"
+    class="rounded-button-component"
     :style="{ margin, padding }"
     :class="getClass"
   >
@@ -32,13 +32,13 @@ export default {
   computed: {
     getClass() {
       const classesMap = new Map([
-        ['blueButton', { blueButton: true }],
-        ['blackButton', { blackButton: true }]
+        ['blueButton', { 'blue-button': true }],
+        ['blackButton', { 'black-button': true }]
       ]);
       const selectedClass = classesMap.get(this.buttonStyle);
 
       if (this.disabled) {
-        selectedClass.disabledStyle = true;
+        selectedClass['disabled-style'] = true;
       }
 
       return selectedClass;
@@ -48,8 +48,7 @@ export default {
 </script>
 
 <style scoped>
-  .roundedButtonComponent {
-    max-width: 380px;
+  .rounded-button-component {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,30 +59,30 @@ export default {
     cursor: pointer;
   }
 
-  .blueButton {
+  .blue-button {
     color: rgb(255, 255, 255);
     background-color: rgb(29, 161, 242);
   }
 
-  .blueButton:hover {
+  .blue-button:hover {
     background-color: rgb(26, 145, 218);
   }
 
-  .blackButton {
+  .black-button {
     color: rgb(29, 161, 242);
     background-color: rgb(0, 0, 0);
     border: 1px solid rgb(29, 161, 242);
   }
 
-  .blackButton:hover {
+  .black-button:hover {
     background-color: rgb(29, 161, 242, 0.1);
   }
 
-  .blueButton, .blackButton {
+  .blue-button, .black-button {
     transition-duration: 0.2s;
   }
 
-  .disabledStyle {
+  .disabled-style {
     opacity: 0.5;
     pointer-events: none;
   }

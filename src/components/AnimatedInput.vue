@@ -1,8 +1,8 @@
 <template>
-  <div class="animatedInput" :class="{ onAnimatedInputFocus: isFocused }">
-    <label :class="{ onLabelFocus: isFocused }">Name</label>
+  <div class="animated-input" :class="{ 'on-animated-input-focus': isFocused }">
+    <label :class="{ 'on-label-focus': isFocused }">{{ label }}</label>
 
-    <div class="inputContainer">
+    <div class="input-container">
       <input
         type="text"
         @focus="handleFocus"
@@ -20,6 +20,9 @@ export default {
       isFocused: false
     }
   },
+  props: {
+    label: String
+  },
   methods: {
     handleFocus() {
       this.isFocused = true;
@@ -32,14 +35,14 @@ export default {
 </script>
 
 <style scoped>
-  .animatedInput {
+  .animated-input {
     border-radius: 4px;
     position: relative;
     border: 1px solid rgb(47, 51, 54);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
-  .onAnimatedInputFocus {
+  .on-animated-input-focus {
     box-shadow: rgb(29, 161, 242) 0 0 0 1px;
     border-color: rgb(29, 161, 242);
   }
@@ -57,13 +60,13 @@ export default {
                 padding-top 150ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   }
 
-  .onLabelFocus {
+  .on-label-focus {
     color: rgb(29, 161, 242);
     font-size: small;
     padding-top: 8px;
   }
 
-  .inputContainer {
+  .input-container {
     padding: 28px 8px 8px 8px;
   }
 

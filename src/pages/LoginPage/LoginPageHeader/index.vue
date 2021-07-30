@@ -1,28 +1,32 @@
 <template>
   <header>
-    <div id="headerLogoContainer">
+    <div class="header-logo-container">
       <bird-logo height="3rem" color="rgba(217, 217 ,217 ,1.00)" />
     </div>
 
-    <h1>Hapenning now</h1>
+    <h1>Happening now</h1>
 
     <h2>Join Twitter today.</h2>
 
-    <div id="buttonsContainer">
-      <router-link to="/i/flow/signup" id="signUpLink">
+    <div class="buttons-container">
+      <router-link to="/i/flow/signup" class="sign-up-link">
+        <div class="button-container">
+          <rounded-button
+            text="Sign up"
+            margin="0 0 20px 0"
+            padding="15px 0"
+          />
+        </div>
+      </router-link>
+
+      <div class="button-container">
         <rounded-button
-          text="Sign up"
+          text="Log in"
+          buttonStyle="blackButton"
           margin="0 0 20px 0"
           padding="15px 0"
         />
-      </router-link>
-
-      <rounded-button
-        text="Log in"
-        buttonStyle="blackButton"
-        margin="0 0 20px 0"
-        padding="15px 0"
-      />
+      </div>
     </div>
   </header>
 </template>
@@ -49,24 +53,30 @@ export default {
     font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
-  #headerLogoContainer {
+  .header-logo-container {
     align-self: flex-start;
   }
 
   h1 {
     font-size: 64px;
+    margin: 48px 0;
   }
 
   h2 {
     font-size: 31px;
+    margin-bottom: 32px;
   }
 
-  #buttonsContainer {
+  .buttons-container {
     display: flex;
     flex-direction: column;
   }
 
-  #signUpLink {
+  .button-container {
+    max-width: 380px;
+  }
+
+  .sign-up-link {
     text-decoration: none;
   }
 </style>
