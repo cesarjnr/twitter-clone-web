@@ -11,7 +11,7 @@
         <h2>Create your account</h2>
         <form>
           <div class="outside-input-container">
-            <animated-input label="Name" />
+            <animated-input label="Name" :inputMaxLength="50" />
           </div>
 
           <div class="outside-input-container">
@@ -23,7 +23,7 @@
           <div class="date-of-birth-container">
             <h3>Date of birth</h3>
             <span class="date-of-birth-warning">
-              This will not be shwon publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
+              This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
             </span>
             <div class="date-of-birth-inputs">
               <div class="date-of-birth-input-container" style="flex-grow: 2;">

@@ -16,6 +16,11 @@ export default {
 }
 
 @font-face {
+  font-family: TwitterChirp;
+  src: url(https://abs.twimg.com/fonts/chirp-regular-web.woff);
+}
+
+@font-face {
   font-family: TwitterChirpExtendedHeavy;
   src: url(https://abs.twimg.com/fonts/chirp-extended-heavy-web.woff);
 }
