@@ -11,11 +11,15 @@
         <h2>Create your account</h2>
         <form>
           <div class="outside-input-container">
-            <animated-input label="Name" :inputMaxLength="50" />
+            <animated-input
+              type="text"
+              label="Name"
+              :maxLength="50"
+            />
           </div>
 
           <div class="outside-input-container">
-            <animated-input label="Phone" />
+            <animated-input type="text" label="Phone" />
           </div>
 
           <span class="switch-email-phone-link">Use email instead</span>
@@ -27,13 +31,13 @@
             </span>
             <div class="date-of-birth-inputs">
               <div class="date-of-birth-input-container" style="flex-grow: 2;">
-                <animated-input label="Month" />
+                <animated-input type="select" label="Month" />
               </div>
               <div class="date-of-birth-input-container" style="flex-grow: 1;">
-                <animated-input label="Day" />
+                <animated-input type="select" label="Day" />
               </div>
               <div class="date-of-birth-input-container" style="flex-grow: 1;">
-                <animated-input label="Year" />
+                <animated-input type="select" label="Year" />
               </div>
             </div>
           </div>
