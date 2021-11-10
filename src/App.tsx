@@ -1,3 +1,14 @@
-import { Login } from "./pages/Login";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-export const App = () => <Login />;
+import { Login } from "./pages/Login";
+import { SignUpModal } from './pages/Login/SignUpModal';
+
+export const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Login />}>
+        <Route path="i/flow/signup" element={<SignUpModal />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);
