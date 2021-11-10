@@ -1,15 +1,17 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 interface Props {
   text: string;
   variant: 'blue' | 'black';
   disabled?: boolean;
+  to?: string;
 };
-type DivProps = 
-  Pick<Props, 'variant' | 'disabled'> & 
+type StyledButtonProps = 
+  Omit<Props, 'text'> & 
   { color: string, backgroundColor: string, hoverBackgroundColor: string };
 
-const StyledRoundedButton = styled.div`
+const StyledButton =  styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,25 +22,29 @@ const StyledRoundedButton = styled.div`
   cursor: pointer;
   margin: 0 0 20px 0;
   padding: 15px 0;
-  color: ${(props: DivProps) => props.color};
-  background-color: ${(props: DivProps) => props.backgroundColor};
+  color: ${(props: StyledButtonProps) => props.color};
+  background-color: ${(props: StyledButtonProps) => props.backgroundColor};
   transition-duration: 0.2s;
 
-  ${(props: DivProps) => props.variant === 'black' && `
+  ${(props: StyledButtonProps) => props.variant === 'black' && `
     border: 1px solid rgb(29, 161, 242);
   `}
 
-  ${(props: DivProps) => props.disabled && `
+  ${(props: StyledButtonProps) => props.disabled && `
     opacity: 0.5;
     pointer-events: none;
   `}
 
+  ${(props: StyledButtonProps) => props.to && `
+    text-decoration: none;
+  `}
+
   &:hover {
-    background-color: ${(props: DivProps) => props.hoverBackgroundColor}
+    background-color: ${(props: StyledButtonProps) => props.hoverBackgroundColor}
   }
 `;
 
-export const RoundedButton = ({ text, variant, disabled }: Props) => {
+export const RoundedButton = ({ text, variant, disabled, to }: Props) => {
   let color = '';
   let backgroundColor = '';
   let hoverBackgroundColor = '';
@@ -54,7 +60,9 @@ export const RoundedButton = ({ text, variant, disabled }: Props) => {
   }
 
   return (
-    <StyledRoundedButton
+    <StyledButton
+      as={to ? Link : "div"}
+      to={to}
       variant={variant}
       disabled={disabled}
       color={color}
@@ -64,6 +72,6 @@ export const RoundedButton = ({ text, variant, disabled }: Props) => {
       <span>
         {text}
       </span>
-    </StyledRoundedButton>
+    </StyledButton>
   );
 };
