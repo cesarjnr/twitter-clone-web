@@ -1,1 +1,3 @@
-export const App = () => <div>Hello World!</div>;
+import { Login } from "./pages/Login";
+
+export const App = () => <Login />;
