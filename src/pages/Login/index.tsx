@@ -1,7 +1,13 @@
 import styled from 'styled-components';
+import { Outlet } from "react-router-dom";
 
 import { Logo } from '../../components/Logo';
 import { RoundedButton } from '../../components/RoundedButton';
+
+interface FooterNavLink {
+  url: string;
+  label: string;
+};
 
 const StyledLogin = styled.div`
   background-color: rgb(0, 0, 0);
@@ -52,31 +58,86 @@ const Main = styled.main`
   background-size: cover;
   background-position: center center;
 `;
+const Footer = styled.footer`
+  padding: 12px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const FooterText = styled.a`
+  margin: 4px 0;
+  padding-right: 16px;
+  color: rgb(110, 118, 125);
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+`;
+const FooterLinkText = styled(FooterText)`
+  text-decoration: none;
 
-export const Login = () => (
-  <StyledLogin>
-    <HeaderMainContainer>
-      <Header>
-        <LogoContainer>
-          <Logo height="3rem" color="rgb(217, 217, 217)" />
-        </LogoContainer>
-        
-        <Title>Happening now</Title>
-        <Subtitle>Join Twitter today.</Subtitle>
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
-        <ButtonsContainer>
-          <ButtonContainer>
-            <RoundedButton text="Sign up" variant="blue" />
-          </ButtonContainer>
-          <ButtonContainer>
-            <RoundedButton text="Log in" variant="black" />
-          </ButtonContainer>
-        </ButtonsContainer>
-      </Header>
+export const Login = () => {
+  const footerNavLinks: FooterNavLink[] = [
+    { url: '#', label: 'About' },
+    { url: '#', label: 'Help Center' },
+    { url: '#', label: 'Terms of Service' },
+    { url: '#', label: 'Privacy Policy' },
+    { url: '#', label: 'Cookie Policy' },
+    { url: '#', label: 'Ads info' },
+    { url: '#', label: 'Blog' },
+    { url: '#', label: 'Status' },
+    { url: '#', label: 'Careers' },
+    { url: '#', label: 'Brand Resources' },
+    { url: '#', label: 'Advertising' },
+    { url: '#', label: 'Marketing' },
+    { url: '#', label: 'Twitter for Business' },
+    { url: '#', label: 'Developers' },
+    { url: '#', label: 'Directory' },
+    { url: '#', label: 'Settings' }
+  ];
 
-      <Main>
-        <Logo height="380px" color="rgb(255, 255, 255)" />
-      </Main>
-    </HeaderMainContainer>
-  </StyledLogin>
-);
+  return (
+    <StyledLogin>
+      <HeaderMainContainer>
+        <Header>
+          <LogoContainer>
+            <Logo height="3rem" color="rgb(217, 217, 217)" />
+          </LogoContainer>
+          
+          <Title>Happening now</Title>
+          <Subtitle>Join Twitter today.</Subtitle>
+
+          <ButtonsContainer>
+            <ButtonContainer>
+              <RoundedButton text="Sign up" variant="blue" to="i/flow/signup" />
+            </ButtonContainer>
+            <ButtonContainer>
+              <RoundedButton text="Log in" variant="black" />
+            </ButtonContainer>
+          </ButtonsContainer>
+        </Header>
+
+        <Main>
+          <Logo height="380px" color="rgb(255, 255, 255)" />
+        </Main>
+      </HeaderMainContainer>
+
+      <Footer>
+        <nav>
+          {footerNavLinks.map(link => (
+            <FooterLinkText key={link.label} href={link.url}>
+              {link.label}
+            </FooterLinkText>
+          ))}
+
+          <FooterText>&copy; 2021 Twitter, Inc.</FooterText>
+        </nav>
+      </Footer>
+
+      <Outlet />
+    </StyledLogin>
+  );
+};
