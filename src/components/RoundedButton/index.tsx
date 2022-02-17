@@ -9,7 +9,7 @@ interface Props {
 };
 type StyledButtonProps = 
   Omit<Props, 'text'> & 
-  { color: string, backgroundColor: string, hoverBackgroundColor: string };
+  { color: string, $backgroundColor: string, $hoverBackgroundColor: string };
 
 const StyledButton =  styled.div`
   display: flex;
@@ -23,7 +23,7 @@ const StyledButton =  styled.div`
   margin: 0 0 20px 0;
   padding: 15px 0;
   color: ${(props: StyledButtonProps) => props.color};
-  background-color: ${(props: StyledButtonProps) => props.backgroundColor};
+  background-color: ${(props: StyledButtonProps) => props.$backgroundColor};
   transition-duration: 0.2s;
 
   ${(props: StyledButtonProps) => props.variant === 'black' && `
@@ -40,7 +40,7 @@ const StyledButton =  styled.div`
   `}
 
   &:hover {
-    background-color: ${(props: StyledButtonProps) => props.hoverBackgroundColor}
+    background-color: ${(props: StyledButtonProps) => props.$hoverBackgroundColor}
   }
 `;
 
@@ -66,8 +66,8 @@ export const RoundedButton = ({ text, variant, disabled, to }: Props) => {
       variant={variant}
       disabled={disabled}
       color={color}
-      backgroundColor={backgroundColor}
-      hoverBackgroundColor={hoverBackgroundColor}
+      $backgroundColor={backgroundColor}
+      $hoverBackgroundColor={hoverBackgroundColor}
     >
       <span>
         {text}
