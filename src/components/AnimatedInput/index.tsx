@@ -64,6 +64,9 @@ const StyledInput = styled.input`
     outline: 0;
   }
 `;
+const SelectOption = styled.option`
+  background-color: rgb(0, 0, 0);
+`;
 
 export const AnimatedInput = ({ type, label, maxLength }: Props) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -98,6 +101,15 @@ export const AnimatedInput = ({ type, label, maxLength }: Props) => {
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />
+        </div>
+      )}
+
+      {type === 'select' && (
+        <div>
+          <StyledInput as="select" value="0">
+            <SelectOption disabled value="0"></SelectOption>
+            <SelectOption value="1">January</SelectOption>
+          </StyledInput>
         </div>
       )}
     </StyledAnimatedInput>

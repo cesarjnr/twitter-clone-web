@@ -3,6 +3,14 @@ import styled from "styled-components";
 import { Logo } from "../../../components/Logo";
 import { AnimatedInput } from "../../../components/AnimatedInput";
 
+interface DateOfBirthTextProps {
+  $color?: string;
+  $fontWeight?: number;
+};
+interface SelectInputContainerProps {
+  $flexGrow?: number;
+};
+
 const StyledSignUpModal = styled.div`
   height: 100%;
   width: 100%;
@@ -17,8 +25,7 @@ const StyledSignUpModal = styled.div`
 const ModalContainer = styled.div`
   min-height: 400px;
   max-height: 90vh;
-  min-width: 600px;
-  max-width: 600px;
+  width: 600px;
   background-color: rgb(0, 0, 0);
   border-radius: 16px;
   padding: 10px 32px 36px 32px;
@@ -47,6 +54,20 @@ const SwitchEmailPhoneLink = styled.a`
     text-decoration: underline;
   }
 `;
+const DateOfBirthText = styled.span`
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: ${(props: DateOfBirthTextProps) => props.$color};
+  font-weight: ${(props: DateOfBirthTextProps) => props.$fontWeight};
+`;
+const SelectInputsContainer = styled.div`
+  margin: 16px 0;
+  display: flex;
+  gap: 12px;
+`;
+const SelectInputContainer = styled.div`
+  flex-grow: ${(props: SelectInputContainerProps) => props.$flexGrow}
+`;
 
 export const SignUpModal = () => (
   <StyledSignUpModal>
@@ -65,6 +86,27 @@ export const SignUpModal = () => (
           />
           <AnimatedInput type="text" label="Phone" />
           <SwitchEmailPhoneLink>Use email instead</SwitchEmailPhoneLink>
+          <div>
+            <div>
+              <DateOfBirthText $fontWeight={700}>Date of birth</DateOfBirthText>
+            </div>
+            <div>
+              <DateOfBirthText $color="rgb(110, 118, 125)">
+                This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
+              </DateOfBirthText>
+            </div>
+            <SelectInputsContainer>
+              <SelectInputContainer $flexGrow={9}>
+                <AnimatedInput type="select" label="Month" />
+              </SelectInputContainer>
+              <SelectInputContainer $flexGrow={1}>
+                <AnimatedInput type="select" label="Day" />
+              </SelectInputContainer>
+              <SelectInputContainer $flexGrow={2}>
+                <AnimatedInput type="select" label="Year" />
+              </SelectInputContainer>
+            </SelectInputsContainer>
+          </div>
         </ModalForm>
       </div>
     </ModalContainer>
